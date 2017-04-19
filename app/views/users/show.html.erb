@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <a href="/ideas">Bright Ideas</a>
+    <br/>
+    <h2>Name: <%= @user.name %></h2>
+    <h2>Alias: <%= @user.alias %></h2>
+    <h2>Email: <%= @user.email %></h2>
+    <hr>
+    <p>Total Number of Posts: <%= @user.ideas.count %></p>
+    <p>Total Number of Likes: <%= @user.likes.count %></p>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <a href="/ideas">Bright Ideas</a>
+    
+    <p><%= @idea.user.alias %> says: <%= @idea.content %></p>
+
+    <table>
+      <thead>
+        <th>Alias</th>
+        <th>Name</th>
+      </thead>
+      <tbody>
+        <% @idea.likers.each do |liker| %>
+          <tr>
+            <td><a href="/users/<%= liker.id %>"><%= liker.alias %></a></td>
+            <td><%= liker.name %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

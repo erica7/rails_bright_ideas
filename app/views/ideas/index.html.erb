@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <br/>
+    <form action="/ideas" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <textarea name="idea[content]" rows="8" cols="80"></textarea>
+      <input type="submit" value="Idea!">
+    </form>
+    <br/>
+    <br/>
+    <h2>Most Liked Ideas</h2>
+    <table>
+      <% @ideas_ranked.each do |idea| %>
+        <tr>
+          <td><a href="/users/<%= idea.user.id %>"><%= idea.user.alias %></a> says: </td>
+          <td><%= idea.content %></td>
+          <td>
+            <% if idea.user === @current_user %>
+              <a href="/ideas/<%= idea.id %>" data-method="delete">Delete</a>
+            <% end %>
+          </td>
+          <td>
+            <form action="/likes" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="like[idea]" value="<%= idea.id %>">
+              <input type="submit" value="Like">
+            </form>
+          </td>
+          <td><a href="/ideas/<%= idea.id %>"><%= idea.likes.count %> people</a> like this.</td>
+        </tr>
+      <% end %>
+    </table>
+    <h2>All Ideas</h2>
+    <table>
+      <% @ideas.each do |idea| %>
+        <tr>
+          <td><a href="/users/<%= idea.user.id %>"><%= idea.user.alias %></a> says: </td>
+          <td><%= idea.content %></td>
+          <td>
+            <% if idea.user === @current_user %>
+              <a href="/ideas/<%= idea.id %>" data-method="delete">Delete</a>
+            <% end %>
+          </td>
+          <td>
+            <form action="/likes" method="post">
+              <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <input type="hidden" name="like[idea]" value="<%= idea.id %>">
+              <input type="submit" value="Like">
+            </form>
+          </td>
+          <td><a href="/ideas/<%= idea.id %>"><%= idea.likes.count %> people</a> like this.</td>
+        </tr>
+      <% end %>
+    </table>
+  </body>
+</html>
