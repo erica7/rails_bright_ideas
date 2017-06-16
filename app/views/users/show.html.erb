@@ -1,17 +1,44 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <a href="/ideas">Bright Ideas</a>
-    <br/>
-    <h2>Name: <%= @user.name %></h2>
-    <h2>Alias: <%= @user.alias %></h2>
-    <h2>Email: <%= @user.email %></h2>
-    <hr>
-    <p>Total Number of Posts: <%= @user.ideas.count %></p>
-    <p>Total Number of Likes: <%= @user.likes.count %></p>
-  </body>
-</html>
+<div class="container-fluid">
+  <div class="row">
+    <a href="/ideas"><button type="button" class="btn" name="button">See all of the Bright Ideas!</button></a>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 class="heading">Name</h4>
+    </div>
+    <div class="col-sm-8">
+      <p><%= @user.name %></p>
+    </div>
+
+    <div class="col-sm-4">
+      <h4 class="heading">Alias</h4>
+    </div>
+    <div class="col-sm-8">
+      <p><%= @user.alias %></p>
+    </div>
+
+    <div class="col-sm-4">
+      <h4 class="heading">Email</h4>
+    </div>
+    <div class="col-sm-8">
+      <p><%= @user.email %></p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h4 class="heading">Total Number of Posts</h4>
+    </div>
+    <div class="col-sm-8">
+      <p><%= @user.ideas.count %></p>
+    </div>
+
+    <div class="col-sm-4">
+      <h4 class="heading">Total Number of Likes</h4>
+    </div>
+    <div class="col-sm-8">
+      <p><%= @user.likes.count %></p>
+    </div>
+  </div>
+</div>
