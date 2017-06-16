@@ -34,6 +34,15 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+# gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+
+# gem 'popper_js', '~> 1.9.9'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+# gem 'sass-rails', '>= 3.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -59,5 +68,5 @@ group :development do
   gem 'faker', '~> 1.6', '>= 1.6.3'
 
   # `rails generate rails_footnotes:install` in terminal
-  gem 'rails-footnotes', '~> 4.1', '>= 4.1.8'
+  # gem 'rails-footnotes', '~> 4.1', '>= 4.1.8'
 end
