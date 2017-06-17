@@ -2,13 +2,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
 body {
   background-color: #333;
   color: #ccc;
   font-family: "Gill Sans";
   font-weight: 100;
   padding-top: 70px;
+  padding-bottom: 50px;
 }
 
 .row {
@@ -40,16 +40,8 @@ a:hover {
 }
 
 .side-margin {
-  margin: auto 0.5em;
-}
-
-footer {
-  background-color: #111;
-}
-
-.footer-text {
-  margin: 0.5em 1.5em;
-  color: #888;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .btn {

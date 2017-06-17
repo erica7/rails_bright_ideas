@@ -4,26 +4,33 @@
   </div>
 
   <div class="row">
-    <p><%= @idea.user.alias %> says: <%= @idea.content %></p>
+    <blockquote>
+      <p class="lead"><%= @idea.content %></p>
+      <p class="col-sm-offset-1">- <em><%= @idea.user.alias %></em></p>
+    </blockquote>
   </div>
 
   <div class="row">
     <h4>Liked by</h4>
   </div>
   <div class="row">
-    <table class="table">
-      <thead>
-        <th>Alias</th>
-        <th>Name</th>
-      </thead>
-      <tbody>
-        <% @idea.likers.each do |liker| %>
-          <tr>
-            <td><a href="/users/<%= liker.id %>"><%= liker.alias %></a></td>
-            <td><%= liker.name %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+    <% if @idea.likers.length > 0 %>
+      <table class="table">
+        <thead>
+          <th>Alias</th>
+          <th>Name</th>
+        </thead>
+        <tbody>
+          <% @idea.likers.each do |liker| %>
+            <tr>
+              <td><a href="/users/<%= liker.id %>"><%= liker.alias %></a></td>
+              <td><%= liker.name %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% else %>
+      <p>This idea hasn't been liked yet...</p>
+    <% end %>
   </div>
 </div>
