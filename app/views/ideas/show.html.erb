@@ -1,36 +1,45 @@
 <div class="container-fluid">
+
   <div class="row">
     <a href="/ideas"><button type="button" class="btn" name="button">See all of the Bright Ideas!</button></a>
   </div>
 
   <div class="row">
-    <blockquote>
-      <p class="lead"><%= @idea.content %></p>
-      <p class="col-sm-offset-1">- <em><%= @idea.user.alias %></em></p>
-    </blockquote>
+    <div class="col-sm-offset-3 col-sm-6">
+      <blockquote>
+        <p class="lead"><%= @idea.content %></p>
+        <p class="col-sm-offset-1">- <em><%= @idea.user.alias %></em></p>
+      </blockquote>
+    </div>
   </div>
 
   <div class="row">
-    <h4>Liked by</h4>
+
+    <div class="col-sm-offset-3 col-sm-1">
+      <h4>Liked by</h4>
+    </div>
+
+    <div class="col-sm-4">
+      <% if @idea.likers.length > 0 %>
+        <table class="table">
+          <thead>
+            <th>Alias</th>
+            <th>Name</th>
+          </thead>
+          <tbody>
+            <% @idea.likers.each do |liker| %>
+              <tr>
+                <td><a href="/users/<%= liker.id %>"><%= liker.alias %></a></td>
+                <td><%= liker.name %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>This idea hasn't been liked yet...</p>
+      <% end %>
+    </div>
+
   </div>
-  <div class="row">
-    <% if @idea.likers.length > 0 %>
-      <table class="table">
-        <thead>
-          <th>Alias</th>
-          <th>Name</th>
-        </thead>
-        <tbody>
-          <% @idea.likers.each do |liker| %>
-            <tr>
-              <td><a href="/users/<%= liker.id %>"><%= liker.alias %></a></td>
-              <td><%= liker.name %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p>This idea hasn't been liked yet...</p>
-    <% end %>
-  </div>
+
 </div>
